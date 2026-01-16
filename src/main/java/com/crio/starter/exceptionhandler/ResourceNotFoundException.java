@@ -1,0 +1,9 @@
+package com.crio.starter.exceptionhandler;
+
+
+
+public class ResourceNotFoundException extends RuntimeException {
+    public ResourceNotFoundException(String message) {
+        super(message);
+    }
+}
