@@ -13,6 +13,7 @@ import com.crio.starter.mapper.UserMapper;
 import com.crio.starter.repository.UserRepository;
 import com.crio.starter.service.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.cache.annotation.Cacheable;
 
 @Service
 @RequiredArgsConstructor
@@ -83,6 +84,7 @@ public class UserServiceImpl implements UserService{
      * @throws ResourceNotFoundException if meme is not found
      */
     @Override
+    @Cachable(value = "meme", key = "#id")
     public ResponseDto getMemeById(String id) {
         // Validate the incoming ID
         if (id == null) {
